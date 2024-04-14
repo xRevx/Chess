@@ -33,6 +33,12 @@ namespace Chess.Chess.Board
             window.Draw(r);
             _gamePiece.draw();
         }
+        public void drawFlipped()
+        {
+            var window = Main.window;
+            window.Draw(r);
+            _gamePiece.drawFlipped();
+        }
 
         public Color assignColor(int row, int column)
         {

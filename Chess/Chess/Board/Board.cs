@@ -1,9 +1,7 @@
 ﻿using Chess.Chess.Characters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Chess.Chess.Utils;
+using SFML.Graphics;
+using SFML.Window;
 
 namespace Chess.Chess.Board
 {
@@ -21,9 +19,18 @@ namespace Chess.Chess.Board
 
         public void draw()
         {
-            foreach(Tile t in tiles)
+            foreach (Tile t in tiles)
             {
                 t.draw();
+            }
+        }
+
+        public void drawFlipped()
+        {
+            var window = Main.window;
+            foreach (Tile t in tiles)
+            {
+                t.drawFlipped();
             }
         }
 

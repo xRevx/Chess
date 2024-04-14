@@ -11,11 +11,16 @@ namespace Chess.Chess.Characters
             _texture = Graphics.getTexture(_isWhite, "pawn");
             _sprite = new Sprite(_texture);
             _sprite.Position = new Vector2f(100, 100);
-
         }
         public override void draw()
         {
             var window = Main.window;
+            window.Draw(_sprite);
+        }
+        public override void drawFlipped()
+        {
+            var window = Main.window;
+            //_sprite.Rotation = 180;
             window.Draw(_sprite);
         }
 

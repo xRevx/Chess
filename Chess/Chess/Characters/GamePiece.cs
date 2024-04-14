@@ -1,6 +1,7 @@
 ﻿using SFML.Graphics;
 using SFML.System;
 
+
 namespace Chess.Chess.Characters
 {
     public class GamePiece
@@ -26,5 +27,6 @@ namespace Chess.Chess.Characters
         public virtual void onSelect(){}
         public virtual void onSelectedClick(){}
         public virtual void draw(){}
+        public virtual void drawFlipped(){}
     }
 }
