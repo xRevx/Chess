@@ -9,6 +9,7 @@ namespace Chess.Chess.Board
     {
         int _width, _height;
         public Tile[,] tiles;
+
         public Board(int width = 8, int height = 8)
         {
             _width = width;
@@ -17,18 +18,18 @@ namespace Chess.Chess.Board
             initBoard();
         }
 
-        public void draw()
+        public void draw(View view)
         {
+            view.Rotation = 0;
             foreach (Tile t in tiles)
             {
                 t.draw();
             }
         }
 
-        public void drawFlipped()
+        public void drawFlipped(View view)
         {
-            var window = Main.window;
-
+            view.Rotation = 180;
             foreach (Tile t in tiles)
             {
                 t.drawFlipped();
