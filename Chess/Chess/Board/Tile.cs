@@ -51,7 +51,7 @@ namespace Chess.Chess.Board
         public void assignGamePiece(GamePiece gamePiece)
         {
             _gamePiece = gamePiece;
-            _gamePiece.rect.Position = r.Position;
+            _gamePiece.setPosition(r.Position);
         }
 
         private void OnMouseButtonPressed(object sender, MouseButtonEventArgs e)

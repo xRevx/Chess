@@ -27,6 +27,7 @@ namespace Chess.Game
                 window.DispatchEvents();
                 window.Clear(Color.Black);
                 window.SetView(view);
+                view.Rotate(180);
                 b.drawFlipped();
                 window.Display();
             }

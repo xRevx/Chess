@@ -28,6 +28,7 @@ namespace Chess.Chess.Board
         public void drawFlipped()
         {
             var window = Main.window;
+
             foreach (Tile t in tiles)
             {
                 t.drawFlipped();
