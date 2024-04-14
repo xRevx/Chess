@@ -13,7 +13,7 @@ namespace Chess.Chess.Board
         private int _row, _column;
         private RectangleShape r;
         private GamePiece _gamePiece;
-        private bool _selected;
+        private bool _marked;
 
         public Tile(int row, int column)
         {
@@ -22,7 +22,8 @@ namespace Chess.Chess.Board
             r = new RectangleShape(new Vector2f(TILE_LENGTH, TILE_LENGTH));
             r.Position = new Vector2f((_row - 1) * TILE_LENGTH, (_column - 1) * TILE_LENGTH);
             r.FillColor = assignColor(_row, _column);
-            _selected = false;
+            _gamePiece = new EmptyPiece();
+            _marked = false;
             Main.window.MouseButtonPressed += OnMouseButtonPressed;
         }
 
@@ -30,6 +31,7 @@ namespace Chess.Chess.Board
         {
             var window = Main.window;
             window.Draw(r);
+            _gamePiece.draw();
         }
 
         public Color assignColor(int row, int column)
@@ -58,7 +60,7 @@ namespace Chess.Chess.Board
                 else if (e.Button == Mouse.Button.Right)
                 {
                     // Right mouse button clicked
-                    if (!_selected)
+                    if (!_marked)
                     {
                         r.FillColor = Color.Red;
                     }
@@ -66,23 +68,20 @@ namespace Chess.Chess.Board
                     {
                         r.FillColor = assignColor(_row, _column);
                     }
-                    _selected = !_selected;
+                    _marked = !_marked;
 
                 }
             }
         }
         public void onClickLeftClick()
         {
-            if(_gamePiece != null)
+            if (!_gamePiece.Selected)
             {
-                if (!_gamePiece.Selected)
-                {
-                    _gamePiece.onSelect();
-                }
-                else
-                {
-                    _gamePiece.onSelectedClick();
-                }
+                _gamePiece.onSelect();
+            }
+            else
+            {
+                _gamePiece.onSelectedClick();
             }
         }
     }

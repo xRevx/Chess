@@ -13,8 +13,14 @@ namespace Chess.Chess.Characters
 
         public bool Selected { get { return Selected; } }
 
-        public void onSelect(){ }
-        public void onSelectedClick() { }
-        public void draw() { }
+        public abstract void onSelect(); 
+        public abstract void onSelectedClick(); 
+        public abstract void draw();
+    }
+    public class EmptyPiece : GamePiece
+    {
+        public override void onSelect() { }
+        public override void onSelectedClick() { }
+        public override void draw() { }
     }
 }
