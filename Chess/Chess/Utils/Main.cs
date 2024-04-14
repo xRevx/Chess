@@ -11,7 +11,8 @@ namespace Chess.Chess.Utils
 
     public static class Graphics
     {
-        private static string imagesFolderPath = "C:\\Users\\USER\\source\\repos\\Chess\\Chess\\Chess\\Characters\\Images\\";
+        private static string projectDirectory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).FullName).FullName).FullName).FullName;
+        private static string imagesFolderPath = Path.Combine(projectDirectory,"Chess\\", "Characters", "Images\\");
         public static Texture getTexture(bool isWhite, string name)
         {
             string textureName = (isWhite ? "w" : "b") + name;
