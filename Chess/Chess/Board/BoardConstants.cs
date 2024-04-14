@@ -13,7 +13,5 @@ namespace Chess.Chess.Board
 
         public static readonly Color white = new Color(235,236,208);
         public static readonly Color black = new Color(119,149,86);
-
-        
     }
 }

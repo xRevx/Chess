@@ -3,13 +3,17 @@ using Chess.Chess.Board;
 using SFML.Graphics;
 using SFML.System;
 using static Chess.Chess.Board.BoardConstants;
+using Chess.Chess.Characters;
+using SFML.Window;
 
 namespace Chess.Chess.Board
 {
     public class Tile
     {
-        int _row, _column;
-        RectangleShape r;
+        private int _row, _column;
+        private RectangleShape r;
+        private GamePiece _gamePiece;
+        private bool _selected;
 
         public Tile(int row, int column)
         {
@@ -18,6 +22,8 @@ namespace Chess.Chess.Board
             r = new RectangleShape(new Vector2f(TILE_LENGTH, TILE_LENGTH));
             r.Position = new Vector2f((_row - 1) * TILE_LENGTH, (_column - 1) * TILE_LENGTH);
             r.FillColor = assignColor(_row, _column);
+            _selected = false;
+            Main.window.MouseButtonPressed += OnMouseButtonPressed;
         }
 
         public void draw()
@@ -32,6 +38,52 @@ namespace Chess.Chess.Board
 
             if (isWhite) return white;
             return black;
+        }
+
+        public void assignGamePiece(GamePiece gamePiece)
+        {
+            _gamePiece = gamePiece;
+        }
+
+        private void OnMouseButtonPressed(object sender, MouseButtonEventArgs e)
+        {
+            // Check if the mouse click occurred within the boundaries of the tile
+            if (r.GetGlobalBounds().Contains(e.X, e.Y))
+            {
+                if (e.Button == Mouse.Button.Left)
+                {
+                    // Left mouse button clicked
+                    onClickLeftClick();
+                }
+                else if (e.Button == Mouse.Button.Right)
+                {
+                    // Right mouse button clicked
+                    if (!_selected)
+                    {
+                        r.FillColor = Color.Red;
+                    }
+                    else
+                    {
+                        r.FillColor = assignColor(_row, _column);
+                    }
+                    _selected = !_selected;
+
+                }
+            }
+        }
+        public void onClickLeftClick()
+        {
+            if(_gamePiece != null)
+            {
+                if (!_gamePiece.Selected)
+                {
+                    _gamePiece.onSelect();
+                }
+                else
+                {
+                    _gamePiece.onSelectedClick();
+                }
+            }
         }
     }
 }
