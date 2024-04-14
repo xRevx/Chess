@@ -22,7 +22,7 @@ namespace Chess.Chess.Board
             r = new RectangleShape(new Vector2f(TILE_LENGTH, TILE_LENGTH));
             r.Position = new Vector2f((_row - 1) * TILE_LENGTH, (_column - 1) * TILE_LENGTH);
             r.FillColor = assignColor(_row, _column);
-            _gamePiece = new EmptyPiece();
+            _gamePiece = new GamePiece();
             _marked = false;
             Main.window.MouseButtonPressed += OnMouseButtonPressed;
         }
@@ -45,6 +45,7 @@ namespace Chess.Chess.Board
         public void assignGamePiece(GamePiece gamePiece)
         {
             _gamePiece = gamePiece;
+            _gamePiece.rect.Position = r.Position;
         }
 
         private void OnMouseButtonPressed(object sender, MouseButtonEventArgs e)

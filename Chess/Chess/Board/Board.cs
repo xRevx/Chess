@@ -9,7 +9,7 @@ namespace Chess.Chess.Board
     internal class Board
     {
         int _width, _height;
-        Tile[,] tiles;
+        public Tile[,] tiles;
         public Board(int width = 8, int height = 8)
         {
             _width = width;

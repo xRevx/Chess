@@ -1,26 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SFML.Graphics;
+using SFML.System;
 
 namespace Chess.Chess.Characters
 {
-    public abstract class GamePiece
+    public class GamePiece
     {
-        int _row, _column;
-        bool _selected;
+        protected int _row, _column;
+        protected bool _isWhite;
+        protected bool _selected;
+        protected Sprite _sprite;
+        protected Texture _texture;
+        public GamePiece() { }
 
-        public bool Selected { get { return Selected; } }
+        public GamePiece(bool isWhite, int row, int column)
+        {
+            _row = row;
+            _column = column;
+            _isWhite = isWhite;
+            _selected = false;
+        }
 
-        public abstract void onSelect(); 
-        public abstract void onSelectedClick(); 
-        public abstract void draw();
-    }
-    public class EmptyPiece : GamePiece
-    {
-        public override void onSelect() { }
-        public override void onSelectedClick() { }
-        public override void draw() { }
+        public bool Selected { get { return _selected; } }
+        public Sprite rect { get { return _sprite; } }
+
+        public virtual void onSelect(){}
+        public virtual void onSelectedClick(){}
+        public virtual void draw(){}
     }
 }
