@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Chess.Chess.Characters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,6 +35,17 @@ namespace Chess.Chess.Board
                 {
                     tiles[i-1, j-1] = new Tile(i, j);
                 }
+            }
+
+            initPawns();
+        }
+
+        private void initPawns()
+        {
+            for(int i = 0; i < _width; i++)
+            {
+                tiles[i, 1].assignGamePiece(new Pawn(false, 1, i));
+                tiles[i, _width-2].assignGamePiece(new Pawn(true, 1, i));
             }
         }
     }
