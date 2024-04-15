@@ -14,7 +14,7 @@ namespace Chess.Game
         public Game()
         {
 
-            b = new Board(8,8);
+            b = new Board(12,6);
         }
 
         public void play()

@@ -67,7 +67,7 @@ namespace Chess.Chess.Board
             for(int i = 0; i < _boardWidth; i++)
             {
                 tiles[i, 1].assignGamePiece(new Pawn(false, 1, i));
-                tiles[i, _boardWidth-2].assignGamePiece(new Pawn(true, 1, i));
+                tiles[i, _boardHeight-2].assignGamePiece(new Pawn(true, 1, i));
             }
         }
 
