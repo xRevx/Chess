@@ -12,6 +12,7 @@ namespace Chess.Chess.Board
         int _boardWidth, _boardHeight, _screenWidth, _screenHeight;
         public Tile[,] tiles;
         IntRect _boardBounds;
+        private bool isFlipped;
 
         public Board(int width = 8, int height = 8)
         {
@@ -23,11 +24,13 @@ namespace Chess.Chess.Board
             tiles = new Tile[_boardWidth, _boardHeight];
             initBoard();
             Main.window.MouseButtonPressed += OnMouseButtonPressed;
+            isFlipped = false;
 
         }
 
         public void draw(View view)
         {
+            isFlipped = false;
             view.Rotation = 0;
             foreach (Tile t in tiles)
             {
@@ -37,6 +40,7 @@ namespace Chess.Chess.Board
 
         public void drawFlipped(View view)
         {
+            isFlipped = true;
             view.Rotation = 180;
             foreach (Tile t in tiles)
             {
@@ -72,7 +76,17 @@ namespace Chess.Chess.Board
             // Check if the mouse click occurred within the boundaries of the tile
             if (_boardBounds.Contains(e.X, e.Y))
             {
-                Tile t = tiles[(_screenWidth - e.X) / TILE_LENGTH, (_screenHeight - e.Y) / TILE_LENGTH];
+                Tile t;
+                int tile_x = e.X / TILE_LENGTH;
+                int tile_y = e.Y / TILE_LENGTH;
+                if (isFlipped)
+                {
+                   t = tiles[_screenWidth / TILE_LENGTH - tile_x - 1, _screenHeight / TILE_LENGTH - tile_y - 1];
+                }
+                else
+                {
+                    t = tiles[ tile_x, tile_y];
+                }
                 if (e.Button == Mouse.Button.Left)
                 {
                     // Left mouse button clicked
