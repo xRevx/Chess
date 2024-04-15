@@ -14,7 +14,7 @@ namespace Chess.Game
         public Game()
         {
 
-            b = new Board(12,12);
+            b = new Board(8,8);
             var window = Main.window;
             window.Size = new Vector2u((uint)b._screenWidth, (uint)b._screenHeight);
         }
@@ -29,7 +29,7 @@ namespace Chess.Game
                 window.DispatchEvents();
                 window.Clear(Color.Black);
                 window.SetView(view);
-                b.draw(view);
+                b.drawBlack(view);
                 window.Display();
             }
         }

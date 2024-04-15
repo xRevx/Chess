@@ -26,13 +26,13 @@ namespace Chess.Chess.Board
             _marked = false;
         }
 
-        public void draw()
+        public void drawWhite()
         {
             var window = Main.window;
             window.Draw(r);
             _gamePiece.draw();
         }
-        public void drawFlipped()
+        public void drawBlack()
         {
             var window = Main.window;
             window.Draw(r);

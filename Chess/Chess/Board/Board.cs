@@ -33,24 +33,26 @@ namespace Chess.Chess.Board
             _boardWidth = Math.Clamp(width, MIN_TILES_WIDTH, MAX_TILES_WIDTH);
         }
 
-        public void draw(View view)
+        public void drawWhite(View view)
         {
             isFlipped = false;
             view.Rotation = 0;
             foreach (Tile t in tiles)
             {
-                t.draw();
+                t.drawWhite();
             }
         }
 
-        public void drawFlipped(View view)
+        public void drawBlack(View view)
         {
             isFlipped = true;
             view.Rotation = 180;
             foreach (Tile t in tiles)
             {
-                t.drawFlipped();
+                t.drawBlack();
             }
+            var window = Main.window;
+            window.Draw(possiableMoveCirce);
         }
 
         private void initBoard()
