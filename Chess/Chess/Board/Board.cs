@@ -9,16 +9,18 @@ namespace Chess.Chess.Board
 {
     internal class Board
     {
-        int _width, _height;
+        int _boardWidth, _boardHeight, _screenWidth, _screenHeight;
         public Tile[,] tiles;
         IntRect _boardBounds;
 
         public Board(int width = 8, int height = 8)
         {
-            _width = width;
-            _height = height;
-            _boardBounds = new IntRect(0, 0, _width * TILE_LENGTH, _height * TILE_LENGTH);
-            tiles = new Tile[_width, _height];
+            _boardWidth = width;
+            _boardHeight = height;
+            _screenWidth = width * TILE_LENGTH;
+            _screenHeight = height * TILE_LENGTH;
+            _boardBounds = new IntRect(0, 0, _screenWidth, _screenHeight);
+            tiles = new Tile[_boardWidth, _boardHeight];
             initBoard();
             Main.window.MouseButtonPressed += OnMouseButtonPressed;
 
@@ -44,9 +46,9 @@ namespace Chess.Chess.Board
 
         private void initBoard()
         {
-            for(int i = 0; i < _width; i++)
+            for(int i = 0; i < _boardWidth; i++)
             {
-                for(int j = 0; j < _height; j++)
+                for(int j = 0; j < _boardHeight; j++)
                 {
                     tiles[i, j] = new Tile(i + 1, j + 1); //not zero indexed
                 }
@@ -58,20 +60,19 @@ namespace Chess.Chess.Board
 
         private void initPawns()
         {
-            for(int i = 0; i < _width; i++)
+            for(int i = 0; i < _boardWidth; i++)
             {
                 tiles[i, 1].assignGamePiece(new Pawn(false, 1, i));
-                tiles[i, _width-2].assignGamePiece(new Pawn(true, 1, i));
+                tiles[i, _boardWidth-2].assignGamePiece(new Pawn(true, 1, i));
             }
         }
 
         private void OnMouseButtonPressed(object sender, MouseButtonEventArgs e)
         {
-           
             // Check if the mouse click occurred within the boundaries of the tile
             if (_boardBounds.Contains(e.X, e.Y))
             {
-                Tile t = tiles[_width - 1 - e.X / TILE_LENGTH,_height - 1 - e.Y / TILE_LENGTH];
+                Tile t = tiles[(_screenWidth - e.X) / TILE_LENGTH, (_screenHeight - e.Y) / TILE_LENGTH];
                 if (e.Button == Mouse.Button.Left)
                 {
                     // Left mouse button clicked
