@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "Xes6y8oGNpcuy0tpWdm8Z1a+sG0UW6kmOwJzN5OaNbst7daJVnYCJouLQKwEgYOZ4PawhxXJoz+fIZXo5cv4hA==",
+  "dgSpecHash": "gZjbLr7B8ij8rTx7Xnt/g9yvokzIXBS1EEX7sx/Lr7rH6+T4rcBz4xtgDF7ah4LA475LjnUmW3O4cfY0fGa/Ww==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Desktop\\rev\\Chess\\Chess\\Chess.csproj",
+  "projectFilePath": "C:\\Users\\USER\\OneDrive\\Desktop\\chessproject\\Chess\\Chess\\Chess.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\user\\.nuget\\packages\\csfml\\2.5.2\\csfml.2.5.2.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\sfml.audio\\2.5.1\\sfml.audio.2.5.1.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\sfml.graphics\\2.5.1\\sfml.graphics.2.5.1.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\sfml.net\\2.5.1\\sfml.net.2.5.1.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\sfml.system\\2.5.1\\sfml.system.2.5.1.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\sfml.window\\2.5.1\\sfml.window.2.5.1.nupkg.sha512"
+    "C:\\Users\\USER\\.nuget\\packages\\csfml\\2.5.2\\csfml.2.5.2.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\sfml.audio\\2.5.1\\sfml.audio.2.5.1.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\sfml.graphics\\2.5.1\\sfml.graphics.2.5.1.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\sfml.net\\2.5.1\\sfml.net.2.5.1.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\sfml.system\\2.5.1\\sfml.system.2.5.1.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\sfml.window\\2.5.1\\sfml.window.2.5.1.nupkg.sha512"
   ],
   "logs": []
 }

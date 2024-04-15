@@ -9,23 +9,28 @@ namespace Chess.Chess.Board
 {
     internal class Board
     {
-        int _boardWidth, _boardHeight, _screenWidth, _screenHeight;
+        public int _boardWidth, _boardHeight, _screenWidth, _screenHeight;
         public Tile[,] tiles;
         IntRect _boardBounds;
         private bool isFlipped;
 
         public Board(int width = 8, int height = 8)
         {
-            _boardWidth = width;
-            _boardHeight = height;
-            _screenWidth = width * TILE_LENGTH;
-            _screenHeight = height * TILE_LENGTH;
+            clampBoard(width, height);
+            _screenWidth = _boardWidth * TILE_LENGTH;
+            _screenHeight = _boardHeight * TILE_LENGTH;
             _boardBounds = new IntRect(0, 0, _screenWidth, _screenHeight);
             tiles = new Tile[_boardWidth, _boardHeight];
             initBoard();
             Main.window.MouseButtonPressed += OnMouseButtonPressed;
             isFlipped = false;
 
+        }
+
+        public void clampBoard(int width, int height)
+        {
+            _boardHeight = Math.Clamp(height, MIN_TILES_HEIGHT, MAX_TILES_HEIGHT);
+            _boardWidth = Math.Clamp(width, MIN_TILES_WIDTH, MAX_TILES_WIDTH);
         }
 
         public void draw(View view)

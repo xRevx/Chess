@@ -14,7 +14,9 @@ namespace Chess.Game
         public Game()
         {
 
-            b = new Board(12,6);
+            b = new Board(12,12);
+            var window = Main.window;
+            window.Size = new Vector2u((uint)b._screenWidth, (uint)b._screenHeight);
         }
 
         public void play()
