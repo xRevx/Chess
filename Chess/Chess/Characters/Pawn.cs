@@ -27,10 +27,12 @@ namespace Chess.Chess.Characters
 
         public override void onSelect()
         {
+
         }
 
         public override void onSelectedClick()
         {
+
         }
     }
 }

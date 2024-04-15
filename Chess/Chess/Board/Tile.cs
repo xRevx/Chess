@@ -24,7 +24,6 @@ namespace Chess.Chess.Board
             r.FillColor = assignColor(_row, _column);
             _gamePiece = new GamePiece();
             _marked = false;
-            Main.window.MouseButtonPressed += OnMouseButtonPressed;
         }
 
         public void draw()
@@ -54,33 +53,25 @@ namespace Chess.Chess.Board
             _gamePiece.setPosition(r.Position);
         }
 
-        private void OnMouseButtonPressed(object sender, MouseButtonEventArgs e)
+        public void removeGamePiece()
         {
-            // Check if the mouse click occurred within the boundaries of the tile
-            if (r.GetGlobalBounds().Contains(e.X, e.Y))
-            {
-                if (e.Button == Mouse.Button.Left)
-                {
-                    // Left mouse button clicked
-                    onClickLeftClick();
-                }
-                else if (e.Button == Mouse.Button.Right)
-                {
-                    // Right mouse button clicked
-                    if (!_marked)
-                    {
-                        r.FillColor = Color.Red;
-                    }
-                    else
-                    {
-                        r.FillColor = assignColor(_row, _column);
-                    }
-                    _marked = !_marked;
-
-                }
-            }
+            _gamePiece = new GamePiece();
         }
-        public void onClickLeftClick()
+
+
+        public void markTile()
+        {
+            if (!_marked)
+            {
+                r.FillColor = Color.Red;
+            }
+            else
+            {
+                r.FillColor = assignColor(_row, _column);
+            }
+            _marked = !_marked;
+        }
+        public void gamePieceAction()
         {
             if (!_gamePiece.Selected)
             {

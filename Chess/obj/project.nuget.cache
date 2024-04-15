@@ -1,19 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "zp0ijrM+QRxnjVq2cxRzePCWLL7t7y32MWZ6t/oD3QLsSNZw1t+yMMnLXIFM0DxG7WaDLlhYrd6xGA+UVl7Fyw==",
+  "dgSpecHash": "EJGwaNVDpccrLJpBkXPYUCpBqXeZGKRZT23twgh3V7OT9vPHl2k27cEV67MM9Wlv6/B74LzrvYHHlljrszE+DA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ori\\OneDrive\\שולחן העבודה\\chess\\Chess\\Chess\\Chess.csproj",
+  "projectFilePath": "C:\\Users\\USER\\source\\repos\\Chess\\Chess\\Chess.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ori\\.nuget\\packages\\csfml\\2.5.2\\csfml.2.5.2.nupkg.sha512",
-    "C:\\Users\\ori\\.nuget\\packages\\sfml.audio\\2.5.1\\sfml.audio.2.5.1.nupkg.sha512",
-    "C:\\Users\\ori\\.nuget\\packages\\sfml.graphics\\2.5.1\\sfml.graphics.2.5.1.nupkg.sha512",
-    "C:\\Users\\ori\\.nuget\\packages\\sfml.net\\2.5.1\\sfml.net.2.5.1.nupkg.sha512",
-    "C:\\Users\\ori\\.nuget\\packages\\sfml.system\\2.5.1\\sfml.system.2.5.1.nupkg.sha512",
-    "C:\\Users\\ori\\.nuget\\packages\\sfml.window\\2.5.1\\sfml.window.2.5.1.nupkg.sha512",
-    "C:\\Users\\ori\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.29\\microsoft.windowsdesktop.app.ref.6.0.29.nupkg.sha512",
-    "C:\\Users\\ori\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.29\\microsoft.netcore.app.ref.6.0.29.nupkg.sha512",
-    "C:\\Users\\ori\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.29\\microsoft.aspnetcore.app.ref.6.0.29.nupkg.sha512",
-    "C:\\Users\\ori\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.29\\microsoft.netcore.app.host.win-x64.6.0.29.nupkg.sha512"
+    "C:\\Users\\USER\\.nuget\\packages\\csfml\\2.5.2\\csfml.2.5.2.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\sfml.audio\\2.5.1\\sfml.audio.2.5.1.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\sfml.graphics\\2.5.1\\sfml.graphics.2.5.1.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\sfml.net\\2.5.1\\sfml.net.2.5.1.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\sfml.system\\2.5.1\\sfml.system.2.5.1.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\sfml.window\\2.5.1\\sfml.window.2.5.1.nupkg.sha512"
   ],
   "logs": []
 }
