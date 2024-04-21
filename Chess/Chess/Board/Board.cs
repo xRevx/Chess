@@ -51,8 +51,6 @@ namespace Chess.Chess.Board
             {
                 t.drawBlack();
             }
-            var window = Main.window;
-            window.Draw(possiableMoveCirce);
         }
 
         private void initBoard()

@@ -1,4 +1,5 @@
 ﻿using Chess.Chess.Board;
+using Chess.Chess.Board.boardVisuals;
 using Chess.Chess.Characters;
 using Chess.Chess.Utils;
 using SFML.Graphics;
@@ -10,6 +11,7 @@ namespace Chess.Game
     public class Game
     {
         Board b;
+        Queue<(int, int)> drawableTiles = new Queue<(int, int)>();
 
         public Game()
         {
@@ -24,12 +26,16 @@ namespace Chess.Game
             var window = Main.window;
             window.Closed += (sender, e) => window.Close();
             View view = new View(new FloatRect(0, 0, window.Size.X, window.Size.Y));
+
             while (window.IsOpen)
             {
+                drawableTiles.Enqueue((2, 2));
+
                 window.DispatchEvents();
                 window.Clear(Color.Black);
                 window.SetView(view);
                 b.drawBlack(view);
+                PathCircle.drawOnTiles(drawableTiles);
                 window.Display();
             }
         }

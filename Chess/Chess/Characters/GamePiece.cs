@@ -26,7 +26,6 @@ namespace Chess.Chess.Characters
         public void initSprite()
         {
             _sprite.Position = new Vector2f(100, 100);
-            //_sprite.Origin = new Vector2f(_sprite.Origin.X + TILE_LENGTH / 2, _sprite.Origin.Y + TILE_LENGTH / 2);
             _sprite.Origin = new Vector2f(_sprite.Origin.X + TILE_LENGTH / 2, _sprite.Origin.Y + TILE_LENGTH / 2);
         }
 
@@ -37,6 +36,7 @@ namespace Chess.Chess.Characters
         public virtual void onSelectedClick(){}
         public virtual void draw(){}
         public virtual void drawFlipped(){}
+
         public void setPosition(int x, int y)
         {
             _sprite.Position = new Vector2f(x + TILE_LENGTH / 2, y + TILE_LENGTH / 2);
