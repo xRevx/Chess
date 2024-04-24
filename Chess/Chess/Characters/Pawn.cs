@@ -2,7 +2,7 @@
 using Chess.Chess.Utils;
 using SFML.System;
 using Chess.Chess.Board.boardVisuals;
-
+using Chess.Chess.Board;
 
 namespace Chess.Chess.Characters
 {
@@ -19,33 +19,55 @@ namespace Chess.Chess.Characters
             var window = Main.window;
             _sprite.Rotation = 0;
             window.Draw(_sprite);
+            if (_selected)
+            {
+                drawOnSelected();
+            }
         }
         public override void drawFlipped()
         {
             var window = Main.window;
             _sprite.Rotation = 180;
             window.Draw(_sprite);
+            if (_selected)
+            {
+                drawOnSelected();
+            }
+        }
+
+        public void drawOnSelected()
+        {
+            Queue<(int, int)> tilesToDrawOn = new Queue<(int, int)>();
+            int drawColumn = _column;
+            int drawRow = _row + 1;
+            if (_isWhite)
+            {
+                drawColumn = BoardConstants.Board_Height - _column;
+                drawRow = BoardConstants.Board_Height - _row + 1;
+                tilesToDrawOn.Enqueue((drawColumn, drawRow));
+
+            }
+            else
+            {
+                tilesToDrawOn.Enqueue((drawColumn, drawRow));
+
+            }
+            PathCircle.drawOnTiles(tilesToDrawOn);
+            Console.WriteLine($"drawing on {drawColumn}, {drawRow}");
+
         }
 
         public override void onSelect()
         {
-            Queue<(int, int)> tilesToDrawOn = new Queue<(int, int)>();
-            tilesToDrawOn.Enqueue((_row + 1, _column + 1));
-            PathCircle.drawOnTiles(tilesToDrawOn);
-            Console.WriteLine("drawing");
             _selected = true;
         }
 
         public override void onSelectedClick()
         {
-            Queue<(int, int)> tilesToDrawOn = new Queue<(int, int)>();
-            tilesToDrawOn.Enqueue((_row + 1, _column + 1));
-            PathCircle.drawOnTiles(tilesToDrawOn);
-            Console.WriteLine("drawing");
-            _selected = true;
-
-
-
+            if (true)// is valid
+            {
+                _selected = false;
+            }
         }
     }
 }

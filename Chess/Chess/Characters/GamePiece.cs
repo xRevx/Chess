@@ -32,7 +32,7 @@ namespace Chess.Chess.Characters
         public bool Selected { get { return _selected; } }
         public Sprite rect { get { return _sprite; } }
 
-        public virtual void onSelect(){}
+        public virtual void onSelect(){ _selected = true; }
         public virtual void onSelectedClick(){}
         public virtual void draw(){}
         public virtual void drawFlipped(){}

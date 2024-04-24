@@ -19,6 +19,8 @@ namespace Chess.Game
             b = new Board(8,8);
             var window = Main.window;
             window.Size = new Vector2u((uint)b._screenWidth, (uint)b._screenHeight);
+            BoardConstants.Board_Height = b._boardHeight;
+            BoardConstants.Board_Height = b._boardWidth;
         }
 
         public void play()
