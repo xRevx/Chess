@@ -1,6 +1,8 @@
 ﻿using SFML.Graphics;
 using Chess.Chess.Utils;
 using SFML.System;
+using Chess.Chess.Board.boardVisuals;
+
 
 namespace Chess.Chess.Characters
 {
@@ -27,11 +29,22 @@ namespace Chess.Chess.Characters
 
         public override void onSelect()
         {
-
+            Queue<(int, int)> tilesToDrawOn = new Queue<(int, int)>();
+            tilesToDrawOn.Enqueue((_row + 1, _column + 1));
+            PathCircle.drawOnTiles(tilesToDrawOn);
+            Console.WriteLine("drawing");
+            _selected = true;
         }
 
         public override void onSelectedClick()
         {
+            Queue<(int, int)> tilesToDrawOn = new Queue<(int, int)>();
+            tilesToDrawOn.Enqueue((_row + 1, _column + 1));
+            PathCircle.drawOnTiles(tilesToDrawOn);
+            Console.WriteLine("drawing");
+            _selected = true;
+
+
 
         }
     }

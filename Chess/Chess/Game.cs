@@ -29,15 +29,19 @@ namespace Chess.Game
 
             while (window.IsOpen)
             {
-                drawableTiles.Enqueue((2, 2));
 
                 window.DispatchEvents();
-                window.Clear(Color.Black);
-                window.SetView(view);
-                b.drawBlack(view);
-                PathCircle.drawOnTiles(drawableTiles);
-                window.Display();
+                draw(window,view);
+
             }
+        }
+
+        public void draw(RenderWindow window, View view)
+        {
+            window.Clear(Color.Black);
+            window.SetView(view);
+            b.drawWhite(view);
+            window.Display();
         }
 
     }

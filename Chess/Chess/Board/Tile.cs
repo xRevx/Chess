@@ -11,17 +11,19 @@ namespace Chess.Chess.Board
     public class Tile
     {
         private int _row, _column;
-        private RectangleShape r;
+        private RectangleShape rect;
         private GamePiece _gamePiece;
+        private List<Shape> drawAbles;
         private bool _marked;
 
         public Tile(int row, int column)
         {
+            drawAbles = new List<Shape>();
             _row = row;
             _column = column;
-            r = new RectangleShape(new Vector2f(TILE_LENGTH, TILE_LENGTH));
-            r.Position = new Vector2f((_row - 1) * TILE_LENGTH, (_column - 1) * TILE_LENGTH);
-            r.FillColor = assignColor(_row, _column);
+            rect = new RectangleShape(new Vector2f(TILE_LENGTH, TILE_LENGTH));
+            rect.Position = new Vector2f((_row - 1) * TILE_LENGTH, (_column - 1) * TILE_LENGTH);
+            rect.FillColor = assignColor(_row, _column);
             _gamePiece = new GamePiece();
             _marked = false;
         }
@@ -29,14 +31,16 @@ namespace Chess.Chess.Board
         public void drawWhite()
         {
             var window = Main.window;
-            window.Draw(r);
+            window.Draw(rect);
             _gamePiece.draw();
+            clearDrawAbles();
         }
         public void drawBlack()
         {
             var window = Main.window;
-            window.Draw(r);
+            window.Draw(rect);
             _gamePiece.drawFlipped();
+            clearDrawAbles();
         }
 
         public Color assignColor(int row, int column)
@@ -50,7 +54,7 @@ namespace Chess.Chess.Board
         public void assignGamePiece(GamePiece gamePiece)
         {
             _gamePiece = gamePiece;
-            _gamePiece.setPosition(r.Position);
+            _gamePiece.setPosition(rect.Position);
         }
 
         public void removeGamePiece()
@@ -58,19 +62,28 @@ namespace Chess.Chess.Board
             _gamePiece = new GamePiece();
         }
 
+        public void addShapeToDraw(Shape drawAble)
+        {
+            drawAbles.Add(drawAble);
+        }
+        public void clearDrawAbles()
+        {
+            drawAbles.Clear();
+        }
 
         public void markTile()
         {
             if (!_marked)
             {
-                r.FillColor = Color.Red;
+                rect.FillColor = Color.Red;
             }
             else
             {
-                r.FillColor = assignColor(_row, _column);
+                rect.FillColor = assignColor(_row, _column);
             }
             _marked = !_marked;
         }
+
         public void gamePieceAction()
         {
             if (!_gamePiece.Selected)

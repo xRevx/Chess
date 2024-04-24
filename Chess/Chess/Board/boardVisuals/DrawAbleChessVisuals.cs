@@ -10,8 +10,6 @@ namespace Chess.Chess.Board.boardVisuals
     {
         public static void drawOnTiles(Queue<(int, int)> tileCoordinates, Shape drawable)
         {
-            //Vector2f origin = drawable.Origin;
-            //drawable.Origin = new Vector2f(origin.X + drawable.Scale.X / 2, origin.Y + drawable.Scale.Y / 2);
             var winodw = Main.window;
 
             foreach (var coordinate in tileCoordinates)
@@ -24,6 +22,14 @@ namespace Chess.Chess.Board.boardVisuals
             }
 
             tileCoordinates.Clear();
+        }
+        public static void drawOnTile(int row, int column, Shape drawable)
+        {
+            var winodw = Main.window;
+
+            setPosition(row, column, drawable);
+            winodw.Draw(drawable);
+
         }
 
         private static void setPosition(int row, int column,Shape drawable)
